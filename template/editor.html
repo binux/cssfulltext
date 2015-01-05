@@ -41,14 +41,14 @@
               <div class="inputArea">
                 <label for="editorContentSelector">
                   <span class="float-left">全文内容CSS选择器（每行一个）</span>
-                  <a href="http://binux.appspot.com/2011/02/11/css_selector_for_fulltext.html" class="ui-icon ui-icon-help float-right" target="_blank"></a>
+                  <a href="http://blog.binux.me/2011/02/css_selector_for_fulltext/" class="ui-icon ui-icon-help float-right" target="_blank"></a>
                 </label>
                 <textarea id="editorContentSelector" name="content" {{ is_valid|yesno:",readonly" }} style="width: 100%; height: 4em;">{{ project.contentSelector|escape }}</textarea>
               </div>
               <div class="inputArea">
                 <label for"editorFilterSelector">
                   <span class="float-left">广告过滤CSS选择器（每行一个）</span>
-                  <a href="http://binux.appspot.com/2011/02/11/css_selector_for_fulltext.html" class="ui-icon ui-icon-help float-right" target="_blank"></a>
+                  <a href="http://blog.binux.me/2011/02/css_selector_for_fulltext/" class="ui-icon ui-icon-help float-right" target="_blank"></a>
                 </label>
                 <textarea id="editorFilterSelector" name="filter" {{ is_valid|yesno:",readonly" }} style="width: 100%; height: 7em;">{{ project.filterSelector|escape }}</textarea>
               </div>
