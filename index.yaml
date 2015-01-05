@@ -1,0 +1,7 @@
+indexes:
+
+- kind: Project
+  properties:
+    - name: __searchable_text_index_name_link_description
+    - name: lastUpdateDate
+      direction: desc

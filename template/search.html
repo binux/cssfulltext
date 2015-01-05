@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div id="searchListBox">
+    <ul id="searchList">
+    {% if projects %}
+    {% for project in projects %}
+      {% if forloop.first %}
+      <li class="searchItem searchItemFirst ui-corner-top">
+      {% else %}
+      <li class="searchItem">
+      {% endif %}
+        <div class="itemControls">
+          {% ifequal user project.user %}
+            <a href="/e/?id={{ project.key.id }}" class="button ui-corner-all">
+            <span>编辑</span>
+          </a>
+          {% endifequal %}
+          <a href="/a/{{ project.key.id }}" class="button ui-corner-all">
+            <span>立即订阅</span>
+          </a>
+        </div>
+        <div class="starBox">
+          <span class="ui-icon ui-icon-circle-triangle-e"></span>
+        </div>
+        <div class="titleRow">
+          <span>{{ project.name|escape }}</span>
+          <a href="{{ project.link|escape }}" class="itemLink">{{ project.link|escape }}</a>
+        </div>
+        <div class="discriptionRow">
+          {{ project.description|escape|linebreaks }}
+        </div>
+        <div class="authorRow">
+          <span>{{ project.user.email|escape }}</span>
+        </div>
+      </li>
+    {% endfor %}
+    {% else %}
+      <li class="searchItem searchItemFirst ui-corner-top">
+        <div class="starBox">
+          <span class="ui-icon ui-icon-circle-close"></span>
+        </div>
+        <div class="titleRow">
+          <span>没有找到匹配的全文Feed</span>
+        </div>
+        <div class="discriptionRow">
+          Why not create it?
+        </div>
+        <div class="clear-both"></div>
+      </li>
+    {% endif %}
+      <li class="searchItem ui-corner-bottom float-right">
+        <a href="/e/?link={{ link }}" class="button ui-corner-all">
+          <span>建立新的全文Feed</span>
+        </a>
+        <div class="clear-both"></div>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+      {% ifequal saved "1" %}
+        <div id="notice" class="ui-corner-all ui-state-highlight" style="width: 80%; margin: 20px auto 0;">
+          <p style="margin: 0.7em;"><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>保存成功！</p>
+        </div>
+      {% endifequal %}
+      <div id="editorContent" class="ui-corner-all">
+        <div id="editorTitle">
+          <span>编辑全文Feed</span>
+          {% ifnotequal project.key.id 0 %}
+          <a href="/a/{{ project.key.id }}" class="button ui-corner-all float-right">立即订阅</a>
+          <div class="clear-both"></div>
+          {% endifnotequal %}
+        </div>
+        <form id="editorForm" action="/e/" method="post" onsubmit="return checkForm();">
+          <div id="editorLeft">
+            <div>
+              <input id="projectId" type="hidden" name="id" value="{{ project.key.id }}" />
+              <div class="inputArea">
+                <label for="editorLinkInput">原始Feed地址</label>
+                <input id="editorLinkInput" type="text" name="link" value="{{ project.link|escape }}" {{ is_valid|yesno:",readonly" }} {% ifnotequal project.key.id 0 %}readonly{% endifnotequal %} style="width: 100%" />
+              </div>
+              <div class="inputArea">
+                <label for="editorNameInput">名称</label>
+                <input id="editorNameInput" type="text" name="name" value="{{ project.name|escape }}" {{ is_valid|yesno:",readonly" }} style="width: 100%" />
+              </div>
+              <div class="inputArea">
+                <label for="editorDescriptionTextarea">简介</label>
+                <textarea id="editorDescriptionTextarea" name="description" {{ is_valid|yesno:",readonly" }} style="width: 100%; height: 3em;">{{ project.description|escape }}</textarea>
+              </div>
+              <div class="inputArea">
+                <label>Created By:</label>
+                <div style="text-align: right;">{{ project.user.email|escape }}</div>
+              </div>
+            </div>
+          </div>
+          <div id="editorRight">
+            <div>
+              <div class="inputArea">
+                <label for="editorContentSelector">
+                  <span class="float-left">全文内容CSS选择器（每行一个）</span>
+                  <a href="http://binux.appspot.com/2011/02/11/css_selector_for_fulltext.html" class="ui-icon ui-icon-help float-right" target="_blank"></a>
+                </label>
+                <textarea id="editorContentSelector" name="content" {{ is_valid|yesno:",readonly" }} style="width: 100%; height: 4em;">{{ project.contentSelector|escape }}</textarea>
+              </div>
+              <div class="inputArea">
+                <label for"editorFilterSelector">
+                  <span class="float-left">广告过滤CSS选择器（每行一个）</span>
+                  <a href="http://binux.appspot.com/2011/02/11/css_selector_for_fulltext.html" class="ui-icon ui-icon-help float-right" target="_blank"></a>
+                </label>
+                <textarea id="editorFilterSelector" name="filter" {{ is_valid|yesno:",readonly" }} style="width: 100%; height: 7em;">{{ project.filterSelector|escape }}</textarea>
+              </div>
+              <div id="editorButtonBox">
+                <div class="float-left">
+                  {% if is_valid %}
+                    {% ifnotequal project.key.id 0 %}
+                      <input class="button ui-corner-all" id="editorDeleteButton" name="delete" value="删除" type="submit" />
+                    {% endifnotequal %}
+                  {% endif %}
+                </div>
+                <div class="float-right">
+                  {% if is_valid %}
+                    <a href="#" onclick="preview(); return false;" class="button ui-corner-all" id="editorPreviewButton">预览</a>
+                    <input class="button ui-corner-all" id="editorSubmitButton" value="保存" type="submit" />
+                  {% else %}
+                    <a href="{{ login }}" class="button ui-corner-all" id="editorUnlockButton">解锁</a>
+                  {% endif %}
+                </div>
+                <div class="clear-both"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="clear-both"></div>
+      </div>
+
+      <div id="preview">
+      </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+    function checkForm() {
+      var valid = true;
+      if($('#editorNameInput').val() == "") {
+        $('#editorNameInput').parent('.inputArea').addClass('noticeArea');
+        valid = false;
+      } else {
+        $('#editorNameInput').parent('.inputArea').removeClass('noticeArea');
+      }
+      if($('#editorLinkInput').val() == "") {
+        $('#editorLinkInput').parent('.inputArea').addClass('noticeArea');
+        valid = false;
+      } else {
+        $('#editorLinkInput').parent('.inputArea').removeClass('noticeArea');
+      }
+      if($('#editorContentSelector').val() == "") {
+        $('#editorContentSelector').parent('.inputArea').addClass('noticeArea');
+        valid = false;
+      } else {
+        $('#editorContentSelector').parent('.inputArea').removeClass('noticeArea');
+      }
+      return valid;
+    }
+
+    function preview() {
+      if (!checkForm()) {
+        return;
+      }
+      var data = {
+        'link'    : $('#editorLinkInput').val(),
+        'description' : $('#editorDescriptionTextarea').val(),
+        'content' : $('#editorContentSelector').val(),
+        'filter'  : $('#editorFilterSelector').val(),
+      };
+      $('#preview').load('/p/', data);
+    }
+  </script>
+{% endblock %}

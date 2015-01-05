@@ -1,0 +1,262 @@
+/*
+Site Name:      full-text
+Developed By:   binux - 足兆叉虫
+Date Created:   2011-2-5
+Last Updated:   2011-2-5
+Copyright:      GPLv3   <http://www.gnu.org/licenses/>
+*/
+
+#mainContainer {
+  margin: auto; /* center in viewport */
+  width: 974px;
+  font-size: 14px;
+  height: 100%; /* for stickyfooter */
+}
+
+/* ....... header ........*/
+#headerContent {
+  width: 100%;
+}
+#headerContent span {
+  margin: 0px 2px;
+}
+#headerRight {
+  float: right;
+}
+#headerLeft {
+  float: left;
+}
+
+/* ...... middle ...... */
+/* ...... feedForm ...... */
+#feedForm {
+  width: 630px;
+  height: 217px;
+  margin: 10% auto;
+  background: url("images/index.png") no-repeat top left;
+}
+#feedInputBox {
+  position: relative;
+  top: 90px;
+  left: 96px;
+}
+#feedInput {
+  float: left;
+  display: block;
+  width: 435px;
+  height: 29px;
+  background: #CFE2F3;
+  border: 2px solid #073763;
+  font-size: 25px;
+}
+#feedButton {
+  float: left;
+  margin-left: 20px;
+  width: 77px;
+  height: 35px;
+  background: url("images/index-button.png") no-repeat top left;
+  border: none;
+  display: block;
+  font-width: bold;
+}
+#feedButton:hover {
+  background-position: 0px -34px;
+}
+#feedButton:active {
+  background-position: 0px -68px;
+}
+/* ...... editorForm ...... */
+#editorContent {
+  border: 1px solid #36C;
+  width: 80%;
+  margin: 1em auto;
+}
+#editorTitle {
+  padding: 0.3em 0 0.2em 0.5em;
+  background: #E5ECF9;
+}
+#editorTitle > span {
+  font-size: 120%;
+  font-width: bold;
+  line-height: 1.6em;
+}
+#editorTitle > a {
+  margin-right: 5px;
+}
+#editorLeft {
+  width: 39%;
+  float: left;
+}
+#editorLeft > div {
+  padding: 0px 5px;
+}
+#editorRight {
+  width: 59%;
+  float: right;
+}
+#editorRight > div {
+  padding: 0px 5px;
+}
+#editorButtonBox {
+  text-align: right;
+  margin: 0.7em 0px;
+}
+#editorButtonBox > div.float-right > * {
+  margin-left: 1em;
+}
+.inputArea {
+  margin: 0.7em 0px;
+  padding: 0.5em 2em 1em;
+  border: 1px solid #CCC;
+  background: #F6F6F6;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.noticeArea {
+  border: 1px solid #CD0A0A;
+  background: #FEF1EC url(../images/?new=fef1ec&w=1&h=400&f=png&q=100&fltr[]=over|textures/02_glass.png|0|0|95) 50% 50% repeat-x;
+}
+/* ...... preview ...... */
+#previewContent {
+  border: 1px solid #36C;
+  margin: 1em auto;
+}
+#previewTitleBox {
+  padding: 0.3em 0 0.2em 0.5em;
+  background: #E5ECF9;
+}
+#previewTitle {
+  font-size: 120%;
+  font-width: bold;
+  line-height: 1.6em;
+}
+#previewControls > a {
+  margin-right: 1em;
+}
+#previewFullText {
+  padding: 1em;
+}
+#previewCode {
+  width: 100%;
+  height: 10em;
+  margin: 1em auto;
+}
+/* ...... search ...... */
+.searchItem {
+  border: 1px solid #CCC;
+  border-top-width: 0px;
+  padding: 1em 2em;
+  display: block;
+}
+.searchItemFirst {
+  border-top-width: 1px;
+}
+.itemControls {
+  float: right;
+}
+.itemControls > a {
+  margin-left: 0.5em;
+}
+.starBox {
+  margin: 0.4em;
+  float: left;
+}
+.titleRow {
+  font-size: 1.5em;
+  font-width: bold;
+  float: left;
+}
+.itemLink {
+  font-size: 0.7em;
+  font-width: normal;
+  color: #CCC;
+}
+.discriptionRow {
+  margin-top: 0.5em;
+  padding-right: 6em;
+  padding-top: 1px;
+  clear: both;
+}
+.authorRow {
+  margin-top: 0.5em;
+  clear: both;
+  text-align: right;
+}
+.newProject {
+  border: 1px solid #CCC;
+  padding: 1em;
+  margin: 2em;
+  display: block;
+}
+
+/* ...... footer ...... */
+#applogo {
+  float: right;
+}
+/* ...... stickyfooter ...... */
+html, body {height: 100%;}
+#wrap {
+  min-height: 100%;
+}
+#mainContent {
+  overflow:auto;
+	padding-bottom: 35px;
+}  /* must be same height as the footer */
+#footer {
+  position: relative;
+	margin-top: -35px; /* negative value of footer height */
+	height: 35px;
+	clear:both;
+} 
+#footer-margin {
+  height: 55px;
+}
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+
+/* ....... elements ....... */
+.line {
+  border-top: 1px solid #C9D7F1;
+  font-size: 1px;
+  height: 0;
+  width: 100%;
+  clear: both;
+}
+.button {
+  padding: 0.3em 0.5em;
+  float: left;
+  border: 1px solid #CCC;
+  background: #F6F6F6;
+  font-weight: bold;
+  color: #1C94C4;
+}
+a.button {
+  text-decoration: none;
+}
+a.button:hover, input.button:hover {
+  background: #DADADA;
+  border-color: #999;
+}
+a.button:active, input.button:active {
+  background: white;
+  border-color: #AAA;
+}
+.clear-both {
+  clear: both;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+[readonly] {
+  background: lightgray;
+}

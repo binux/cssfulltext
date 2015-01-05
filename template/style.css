@@ -1,0 +1,99 @@
+/*
+Site Name:      full-text
+Developed By:   binux - 足兆叉虫
+Date Created:   2011-2-5
+Last Updated:   2011-2-5
+Copyright:      GPLv3   <http://www.gnu.org/licenses/>
+*/
+
+#mainContainer {
+  margin: auto; /* center in viewport */
+  width: 974px;
+  font-size: 14px;
+  height: 100%; /* for stickyfooter */
+}
+
+/* ....... header ........*/
+#headerContent {
+  width: 100%;
+}
+#headerContent span {
+  margin: 0px 2px;
+}
+#headerRight {
+  float: right;
+}
+#headerLeft {
+  float: left;
+}
+
+/* ...... middle ...... */
+/* ...... feedForm ...... */
+#feedForm {
+  margin-top: 20%;
+}
+#feedInputBox {
+  text-align: center;
+}
+#feedInput {
+  width: 360px;
+}
+/* ...... editorForm ...... */
+#editorContent {
+  width: 80%;
+  margin: auto;
+}
+#editorLeft {
+  width: 39%;
+  float: left;
+}
+#editorLeft > div {
+  padding: 0px 5px;
+}
+#editorRight {
+  width: 59%;
+  float: right;
+}
+#editorRight > div {
+  padding: 0px 5px;
+}
+#editorButtonBox {
+  text-align: right;
+}
+
+/* ...... footer ...... */
+#applogo {
+  float: right;
+}
+/* ...... stickyfooter ...... */
+html, body {height: 100%;}
+#wrap {
+  min-height: 100%;
+}
+#mainContent {
+  overflow:auto;
+	padding-bottom: 35px;
+}  /* must be same height as the footer */
+#footer {
+  position: relative;
+	margin-top: -35px; /* negative value of footer height */
+	height: 35px;
+	clear:both;
+} 
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+
+/* ....... elements ....... */
+.line {
+  border-top: 1px solid #C9D7F1;
+  font-size: 1px;
+  height: 0;
+  width: 100%;
+  clear: both;
+}

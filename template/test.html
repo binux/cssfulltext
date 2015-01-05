@@ -1,0 +1,20 @@
+      <div id="previewContent" class="ui-corner-all">
+       <div id="previewTitleBox">
+          <div id="previewTitle" class="float-left">
+            <span class="ui-icon ui-icon-circle-triangle-e float-left"></span>
+            <span class="float-left">{{ sample.title }}</span>
+          </div>
+          <div id="previewControls" class="float-right" style="margin-left: 0.5em">
+            <a href="{{ sample.link }}" class="button ui-corner-all" target="_blank">浏览原文</a>
+            <a href="#" onclick="preview(); return false;" class="button ui-corner-all" id="editorPreviewButton">下一篇</a>
+          </div>
+          <div class="clear-both"></div>
+        </div>
+        <div id="previewFullText">
+          {{ fulltext }}
+        </div>
+        <div class="clear-both"></div>
+      </div>
+      <div>
+        <textarea id="previewCode">{{ fulltext|escape }}</textarea>
+      </div>

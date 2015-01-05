@@ -1,0 +1,4 @@
+cron:
+- description: daily summary job ( remove cache )
+  url: /cron/remove_cache
+  schedule: every 24 hours

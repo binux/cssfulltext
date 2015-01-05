@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+
+<!--
+Site Name:      full-text
+Developed By:   binux - 足兆叉虫
+Date Created:   2011-2-5
+Last Updated:   2011-2-5
+Copyright:      GPLv3   <http://www.gnu.org/licenses/>
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>{% block title %}Css Full-Text{% endblock %}</title>
+  
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.2.0/build/cssreset/reset-min.css">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.2.0/build/cssbase/base-min.css">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.2.0/build/cssfonts/fonts-min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.8.9.custom.css">
+  <!--Character Encoding-->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  
+  <!--javascript-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+  
+</head>
+
+<body>
+  <!--Main Container - Centers Everything-->
+  <div id="mainContainer" class="yui3-g">
+    
+    <div id="wrap">
+      <!--Header-->
+      <div id="header">
+        <div id="headerContent">
+          <div id="headerRight">
+            {% if user %}
+            <span> {{ user.email }} </span>
+            <span>|</span>
+            <span> <a href="/s/user/?q={{user.email}}">我的Feed</a> </span>
+            <span>|</span>
+            <span> <a href="{{ logout }}">登出</a> </span>
+            {% else %}
+            <span> <a href="{{ login }}">登入</a> </span>
+            {% endif %}
+          </div>
+          <div id="headerLeft">
+            <span> <a href="/">首页</a> </span>
+            <span> <a href="http://binux.appspot.com/" target="_blank">Binuxの杂货铺</a> </span>
+            <span> <a href="http://douban2bangumi.appspot.com/" target="_blank">Douban2Bangumi</a> </span>
+            <!--<span> <a href="http://war3.byr.edu.cn/" target="_blank">BYR Dota 战网</a> </span>-->
+          </div>
+        </div>
+        <div class="line"></div>
+      </div>
+      
+      <!--Main Content-->
+      <div id="mainContent">
+        {% block content %}{% endblock %}
+        <div id="footer-margin" class="clear-both"></div>
+      </div>
+    </div>
+    
+    <!--Footer-->
+    <div id="footer">
+      <div class="line"></div>
+      <div id="applogo"><a href="#"><img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="由 Google App Engine 提供支持" /></a></div>
+    </div>
+  </div>
+  {% block script %}{% endblock %}
+</body>
+</html>
+
+
+ 
